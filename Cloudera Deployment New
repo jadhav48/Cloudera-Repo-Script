@@ -48,7 +48,27 @@ echo 'vm.swappiness=1' | sudo tee --append /etc/sysctl.conf
 
 ### Note : Now, save the instance to an image, call it “Cloudera Manager” Make sure to 
 check “No reboot”
+ # instance from image 3 master 3 workers
 
+#Copy file s3 To CM Using AWS Cli
+$ sudo apt-get install awscli
+
+#Access IAM S3 Rule
+
+$ aws s3 ls <bucket name>
+#cp Object from S3 on CM
+
+#copy first file
+$ aws s3 cp s3://clouderafile/CDH-6.3.3-1.cdh6.3.3.p0.1796617-xenial.parcel.sha ~
+
+#copy Second file
+$ aws s3 cp s3://clouderafile/CDH-6.3.3-1.cdh6.3.3.p0.1796617-xenial.parcel ~
+
+#copy third file
+$ aws s3 cp s3://clouderafile/cm6.3.3-ubuntu1604.tar.gz ~
+
+#copy fourth file
+$ aws s3 cp s3://clouderafile/manifest.json ~
 
 ##### Configuring a local package repository #####
 
@@ -113,7 +133,7 @@ $ sudo mkdir -p /var/www/html/cloudera-repos/cm6
 
 ----*** Download the Cloudera Manager Repo tarball ***----
 
-$ wget tarball
+# wget tarball
 
 $ sudo tar xvfz cm6.3.3-ubuntu1604.tar.gz -C /var/www/html/cloudera-repos/cm6 --strip-components=1
 
