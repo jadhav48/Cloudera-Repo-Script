@@ -141,8 +141,9 @@ $ sudo chmod -R ugo+rX /var/www/html/cloudera-repos/cm6
 
 ----*** Seting up internal repository ***----
 
-	
-deb [trusted=yes] http://<private-ip>/cloudera-repos/cm6 xenial-cm6 contrib 
+$ sudo nano /etc/apt/sources.list.d/cloudera-repo.list
+deb [trusted=yes] http://<private-ip>/cloudera-repos/cm6 xenial-cm6 contrib
+
 
 $ sudo apt-get update 
 
